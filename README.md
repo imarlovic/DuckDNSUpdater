@@ -13,7 +13,7 @@ Supports Windows 10 devices.
 
 Background refresh
 
-### Screenshot
+## Screenshot
 
 ![assets](https://store-images.s-microsoft.com/image/apps.55504.14536780785897441.4478f435-3285-4c75-a70e-ad7ac8419570.f00c57e6-0dbe-401b-976c-06129917705a?w=1399&h=566&q=90&format=jpg)
 
