@@ -1,0 +1,52 @@
+﻿<Page
+    x:Class="DuckDNSUpdater.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DuckDNSUpdater"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="500" Height="168" MaxHeight="168" MaxWidth="500">
+
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="10,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" Text="Domain"/>
+        <TextBox 
+            Name="DomainNamesTextBox"
+            HorizontalAlignment="Left" 
+            Margin="111,10,0,0" 
+            TextWrapping="Wrap" 
+            VerticalAlignment="Top" 
+            Width="379" 
+            Text="{x:Bind DomainNames, TargetNullValue='', UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+            TextChanged="CheckButtonState"
+            PlaceholderText="One or more domain names separated by comma"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" Text="Token"/>
+        <TextBox 
+            Name="TokenTextBox"
+            HorizontalAlignment="Left" 
+            Margin="111,47,0,0"
+            TextWrapping="Wrap" 
+            VerticalAlignment="Top" 
+            Width="379" 
+            Text="{x:Bind Token, TargetNullValue='', UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+            TextChanged="CheckButtonState"
+            PlaceholderText="Duck DNS Token"/>
+        <ComboBox 
+            Name="IntervalComboBox" 
+            Margin="111,84,0,0" Width="379" 
+            ItemsSource="{x:Bind Intervals}" 
+            DisplayMemberPath="Label" 
+            SelectedItem="{x:Bind SelectedInterval, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+            SelectionChanged="CheckButtonState"
+            PlaceholderText="Select refresh interval"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" Text="Interval"/>
+        <Button 
+            Name="OkButton" 
+            Content="OK" 
+            Margin="0,125,0,0" 
+            VerticalAlignment="Top" 
+            Width="480" Click="Button_ClickAsync" 
+            HorizontalAlignment="Center"
+            IsEnabled="False"/>
+    </Grid>
+</Page>
